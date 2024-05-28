@@ -9,7 +9,7 @@ function TestAPI() {
   useEffect(() => {
     const ourUsername = "key_37767e28b64e7068d2f44e692a97f3aa";
     const ourPassword = "secret_1797703cca9a2444a3b8e74c1a1e199fbaed7ab13dd64627510041923c73a108";
-    const urlAPI = "http://localhost/anabim/server/wp-json/tutor/v1/courses/";
+    const urlAPI = "http://localhost/anabim/server/wp-json/tutor/v1/author-information/1";
     
     axios({
       method: 'get',

@@ -11,29 +11,29 @@ const CourseBlock = () => {
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-7">
           <div className="bg-[url('../images/all-img/bg-ins-1.png')] bg-cover  bg-no-repeat p-10  rounded-md">
             <div className="max-w-[337px]">
-              <div className="mini-title">Build Your Career</div>
+              <div className="mini-title">Bạn muốn </div>
               <div className=" text-[34px] text-black leading-[51px]">
-                Become an <span className="shape-bg"> Instructor</span>
+                Trở thành một <span className="shape-bg"> Giảng Viên</span>
               </div>
               <div className=" mt-6 mb-12">
-                Learn at your own pace, move the between multiple courses.
+                Hãy trở thành đối tác của chúng tôi.
               </div>
               <a href="#" className="btn btn-primary">
-                Apply Now
+                Đăng ký giảng viên
               </a>
             </div>
           </div>
           <div className="bg-[url('../images/all-img/bg-ins-2.png')]  bg-no-repeat p-10 bg-cover rounded-md">
             <div className="max-w-[337px]">
-              <div className="mini-title">Build Your Career</div>
+              <div className="mini-title">Bạn muốn</div>
               <div className=" text-[34px] text-black leading-[51px]">
-                Get Free <span className="shape-bg">Courses</span>
+                Tham gia những <span className="shape-bg">Khóa học</span>
               </div>
               <div className=" mt-6 mb-12">
-                Learn at your own pace, move the between multiple courses.
+                Những khóa học tốt nhất mà bạn đang cần.
               </div>
               <a href="#" className="btn btn-black">
-                Contact Us
+                Đăng ký học
               </a>
             </div>
           </div>

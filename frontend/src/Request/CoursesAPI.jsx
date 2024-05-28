@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function useCoursesAPI() {
-  const [data, setData] = useState([]);
+  const [dataCourses, setdataCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -21,7 +21,7 @@ function useCoursesAPI() {
       },
     })
       .then(response => {
-        setData(response.data);
+        setdataCourses(response.data);
         setIsLoading(false);
         setError(null);
       })
@@ -33,7 +33,12 @@ function useCoursesAPI() {
 
   }, []);
 
-  return { data, isLoading, error };
+  //test data back
+  // useEffect(() => {
+  //   console.log(dataCourses);
+  // }, [dataCourses]);
+
+  return { dataCourses, isLoading, error };
 }
 
 export default useCoursesAPI;

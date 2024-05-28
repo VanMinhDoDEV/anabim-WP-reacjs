@@ -5,10 +5,10 @@ import Accordion from "../HomeThreeComponents/Accordion";
 import Banner from "../HomeThreeComponents/Banner";
 // import Brands from "../HomeThreeComponents/Brands";
 import CourseBlock from "../HomeThreeComponents/CourseBlock";
-import Event from "../HomeThreeComponents/Event";
+// import Event from "../HomeThreeComponents/Event";
 import Team from "../HomeThreeComponents/Team";
-import Testimonial from "../HomeThreeComponents/Testimonial";
-import BlogArticle from "../HomeTwoComponents/BlogArticle";
+import Testimonial from "../HomeThreeComponents/Testimonials";
+import BlogArticle from "../HomeThreeComponents/BlogArticle";
 import Footer from "../Footer";
 import CourseSection from "../HomeThreeComponents/CourseSection";
 function Home() {
@@ -24,7 +24,7 @@ function Home() {
       <CourseSection />
       <Team />
       <Testimonial />
-      <Event />
+      {/* <Event /> */}
       <CourseBlock />
       <Accordion />
       <BlogArticle />

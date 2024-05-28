@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Components/Home/Home";
-import HomeThree from "./Components/Home/HomeThree";
 import HomeTestAPI from "./Components/Home/HomeTestAPI";
 import ErrorPage from "./Components/Pages/404Page";
 import BLogStandard from "./Components/Pages/BLogStandard";
@@ -21,7 +20,6 @@ function App() {
         <Routes>
           <Route path="/home-test-api" element={<HomeTestAPI />} />
           <Route path="/" element={<Home />} />
-          <Route path="anabim/home-three" element={<HomeThree />} />
           <Route
             path="/instructor-details"
             element={<InstructorDetails />}

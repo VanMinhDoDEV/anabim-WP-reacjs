@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import useCoursesAPI from "../../Request/CoursesAPI";
-import CourseFilter from "./CourseFilter";
+// import CourseFilter from "./CourseFilter";
 import SingleCourse from "./SingleCourse";
 
 const CourseSection = () => {
   const [filterData, setFilterData] = useState([]);
-  const [activeData, setActiveData] = useState(0);
+  const [limitCourse, setLimitCourse] = useState(6);  // New state
   
-  const { data: courses, isLoading } = useCoursesAPI();
+  const { dataCourses: courses, isLoading } = useCoursesAPI();
 
   useEffect(() => {
     if (courses) {
@@ -27,16 +26,16 @@ const CourseSection = () => {
             </div>
           </div>
           <div className="flex-none">
-            <CourseFilter
+            {/* <CourseFilter
               mainData={useCoursesAPI}
               activeData={activeData}
               setActiveData={setActiveData}
-              setFilterData={setFilterData} />
+              setFilterData={setFilterData} /> */}
           </div>
         </div>
         <div className="flex flex-wrap pt-10 grids">
           {!isLoading && filterData?.length > 0 ? (
-            filterData.slice(0, 12).map((data, index) => (
+            filterData.slice(0, limitCourse).map((data, index) => (
               <SingleCourse key={index} courseData={data} />
             ))
           ) : (
@@ -44,9 +43,9 @@ const CourseSection = () => {
           )}
         </div>
         <div className="text-center lg:pt-16 pt-10">
-          <a href="#" className="btn btn-primary">
+          <button className="btn btn-primary" onClick={() => setLimitCourse(oldLimitCourse => oldLimitCourse+3)}>
             Xem thêm khóa học
-          </a>
+          </button>
         </div>
       </div>
     </div>

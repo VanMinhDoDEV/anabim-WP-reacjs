@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import footerLogo from "../assets/images/logo/footer-logo.svg";
+import useGetMenus from "../Request/MenuAPI";
 
 const Footer = () => {
   const updatedDate = new Date().getFullYear();
+  const {mainNavData, footerNavOneData, footerNavTwoData, isLoading } = useGetMenus();
+
   return (
     <footer className="bg-black bg-[url('../images/all-img/footer-bg-1.png')] bg-cover bg-center bg-no-repeat">
       <div className="section-padding container">
@@ -14,8 +17,8 @@ const Footer = () => {
                 <img src={footerLogo} alt="" />
               </a>
               <p>
-                Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius
-                enim eros elementum tristique. Duis cursus.
+                Nền tảng elearning giúp kết nối giảng viên và học viên 
+                chúng tôi hỗ trợ đa nền tảng thông qua công nghệ web.
               </p>
               <ul className="flex space-x-4 pt-8">
                 <li>
@@ -61,57 +64,33 @@ const Footer = () => {
             <div className="flex space-x-[80px]">
               <div className="flex-1 lg:flex-none">
                 <h4 className="mb-8 text-2xl font-bold text-white">Links</h4>
-                <ul className="list-item space-y-5">
+                {footerNavOneData.map(item => 
+                <ul className="list-item space-y-5" key={item.id}>
                   <li>
-                    <a href="#">Home</a>
-                  </li>
-                  <li>
-                    <a href="#">About Us</a>
-                  </li>
-                  <li>
-                    <a href="#">Pricing</a>
-                  </li>
-                  <li>
-                    <a href="#">Courses</a>
-                  </li>
-                  <li>
-                    <a href="#">Contact Us</a>
-                  </li>
-                  <li>
-                    <a href="#">Blog</a>
+                    <a href={item.url}>
+                      {item.title}</a>
                   </li>
                 </ul>
+                )}
               </div>
-              <div className="flex-1 lg:flex-none">
+              {/* <div className="flex-1 lg:flex-none">
                 <h4 className="mb-8 text-2xl font-bold text-white">Legal</h4>
-                <ul className="list-item space-y-5">
+                {footerNavTwoData.map(item => 
+                <ul className="list-item space-y-5" key={item.id}>
                   <li>
-                    <a href="#">Legal</a>
-                  </li>
-                  <li>
-                    <a href="#">Tearms of Use</a>
-                  </li>
-                  <li>
-                    <a href="#">Tearm & Condition</a>
-                  </li>
-                  <li>
-                    <a href="#">Payment Method</a>
-                  </li>
-                  <li>
-                    <a href="#">Privacy Policy</a>
-                  </li>
-                  <li>
-                    <a href="#">Privacy Policy</a>
+                    <a href={item.url}>
+                      {item.title}</a>
                   </li>
                 </ul>
-              </div>
+                )}
+              </div> */}
             </div>
           </div>
           <div className="single-footer">
-            <h4 className="mb-8 text-2xl font-bold text-white">Newsletter</h4>
+            <h4 className="mb-8 text-2xl font-bold text-white">Nhận tin tức</h4>
             <div className="mb-8">
-              Join over <span className="text-primary underline">68,000</span>{" "}
-              people getting our emails Lorem ipsum dolor sit amet consectet
+              Đăng ký để <span className="text-primary underline">Nhận tin miên phí</span>{" "}
+              từ chúng tôi. Để chúng ta cùng tốt hơn!
             </div>
             <div className="mb-4 flex items-center rounded-md bg-white py-[10px] pr-[10px] pl-6 shadow-e1">
               <div className="flex-none">
@@ -122,19 +101,19 @@ const Footer = () => {
               <div className="flex-1">
                 <input
                   type="text"
-                  placeholder="Enter your mail"
+                  placeholder="Nhập email của bạn"
                   className="border-none focus:ring-0"
                 />
               </div>
             </div>
             <button className="btn btn-primary block w-full text-center">
-              Subscribe Now
+              Đăng ký nhận tin
             </button>
           </div>
         </div>
       </div>
       <div className="container border-t border-white border-opacity-[0.1] py-8 text-center text-base">
-        &copy; Copyright {updatedDate} | Edumim Template | All Rights Reserved
+        &copy; Copyright {updatedDate} | Min Web | All Rights Reserved
       </div>
     </footer>
   );
