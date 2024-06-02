@@ -28,6 +28,7 @@ const Testimonial = () => {
 
   return (
     <div className=" section-padding bg-[url('../images/all-img/section-bg-12.png')]  bg-no-repeat bg-cover">
+      <div className="container">
       <Swiper
         navigation={{
           prevEl: ".slickprev",
@@ -113,6 +114,7 @@ const Testimonial = () => {
           </button>
         </div>
       </Swiper>
+      </div>
     </div>
   );
 };

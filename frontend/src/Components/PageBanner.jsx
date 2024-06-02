@@ -12,12 +12,17 @@ const PageBanner = ({ pageName, pageTitle, num, title }) => {
         <nav>
           <ol className="flex items-center justify-center space-x-3">
             <li className="breadcrumb-item">
-              <Link to={"/react-templates/edumim/home"}> Pages</Link>
+              <Link to={"/"}> Home</Link>
             </li>
             <li className="breadcrumb-item">-</li>
             <li className="text-primary">
-              {pageName} {pageTitle} {num}
+              <Link to={"/giang-vien"}>{pageName} {pageTitle}</Link>
             </li>
+            <li className="breadcrumb-item">-</li>
+            <li className="text-primary">
+              {title}
+            </li>
+
           </ol>
         </nav>
       </div>

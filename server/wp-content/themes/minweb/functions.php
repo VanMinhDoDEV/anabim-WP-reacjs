@@ -13,4 +13,6 @@ require "inc/functions/api/user-meta.php";
 require "inc/functions/api/post-type-client.php";
 require "inc/functions/api/add-thumb-post.php";
 require "inc/functions/api/add-cat-name-post.php";
+require "inc/functions/api/get-meta-posts.php";
+require "inc/functions/api/custom-courses.php";
 

@@ -73,9 +73,9 @@ const Header = () => {
                 </div>
                 <div className="flex-none flex space-x-[18px]">
                   <div className="hidden lg:block">
-                    <a href="#" className="btn btn-primary py-[15px] px-8">
+                    <Link to={"/khoa-hoc"} className="btn btn-primary py-[15px] px-8">
                       Khóa học
-                    </a>
+                    </Link>
                   </div>
                   <div className="block lg:hidden">
                     <button

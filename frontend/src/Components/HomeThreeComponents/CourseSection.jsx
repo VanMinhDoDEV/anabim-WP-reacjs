@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import useCoursesAPI from "../../Request/CoursesAPI";
-// import CourseFilter from "./CourseFilter";
 import SingleCourse from "./SingleCourse";
 
 const CourseSection = () => {
   const [filterData, setFilterData] = useState([]);
-  const [limitCourse, setLimitCourse] = useState(6);  // New state
+  const [limitCourse, setLimitCourse] = useState(6); 
   
-  const { dataCourses: courses, isLoading } = useCoursesAPI();
-
+  const { dataWPCourses: courses, isLoading } = useCoursesAPI();
   useEffect(() => {
     if (courses) {
-      const filteredCourses = courses.data && courses.data.posts;
+      const filteredCourses = courses;
       setFilterData(filteredCourses);
     }
   }, [courses]);
@@ -35,18 +33,20 @@ const CourseSection = () => {
         </div>
         <div className="flex flex-wrap pt-10 grids">
           {!isLoading && filterData?.length > 0 ? (
-            filterData.slice(0, limitCourse).map((data, index) => (
+            courses.slice(0, limitCourse).map((data, index) => (
               <SingleCourse key={index} courseData={data} />
             ))
           ) : (
-            <h1 style={{ textAlign: "center" }}>Hiện chưa có khóa học nào</h1>
+            <p style={{ textAlign: "center" }}>Đang load khóa học!</p>
           )}
         </div>
+        {limitCourse < courses.length && (
         <div className="text-center lg:pt-16 pt-10">
           <button className="btn btn-primary" onClick={() => setLimitCourse(oldLimitCourse => oldLimitCourse+3)}>
             Xem thêm khóa học
           </button>
         </div>
+         )}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import CoralinaCloud from "../CoralinaCloud";
+import IntructorDetail from "../IntructorDetail";
 import Footer from "../Footer";
 import Header from "../Header";
 import PageBanner from "../PageBanner";
@@ -9,11 +9,11 @@ const InstructorDetails = () => {
     <>
       <Header />
       <PageBanner
-        title={"About Instructor"}
-        pageTitle={"Team Member"}
+        title={"Giới thiệu giảng viên"}
+        pageTitle={"giảng viên"}
         num={1}
       />
-      <CoralinaCloud />
+      <IntructorDetail />
       <Footer />
     </>
   );

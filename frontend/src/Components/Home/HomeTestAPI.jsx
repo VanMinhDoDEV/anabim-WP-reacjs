@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
-import TestAPI from "../TestAPI";
+import TestAPI from "../../Request/TestAPI";
 
 
 

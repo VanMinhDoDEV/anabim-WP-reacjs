@@ -49,7 +49,7 @@ const BlogArticle = () => {
                 </div>
                 <h4 className=" lg:text-2xl lg:leading-[36px] text-1xl mb-4 font-bold">
                   <Link
-                    to={'/react-templates/edumim/single-blog'}
+                    to={`/blog/${post.slug}`}
                     className=" group-hover:text-primary transitio duration-150"
                   >
                     {post.title.rendered}
@@ -62,7 +62,7 @@ const BlogArticle = () => {
                   </a>
                   <a className=" flex items-center space-x-2" href="#">
                     <img src={user2} alt="" />
-                    <span>Minh Tàu</span>
+                    <span>{post.custom_meta.author_name}</span>
                   </a>
                 </div>
               </div>

@@ -2,15 +2,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import HomeTestAPI from "./Components/Home/HomeTestAPI";
 import ErrorPage from "./Components/Pages/404Page";
-import BLogStandard from "./Components/Pages/BLogStandard";
+import BLogStandard from "./Components/Pages/BLog";
 import ContactUs from "./Components/Pages/ContactUs";
 import Courses from "./Components/Pages/Courses";
 import CourseSideBar from "./Components/Pages/CourseSideBar";
+import CourseCategory from "./Components/Pages/CourseCat";
 import Event from "./Components/Pages/Event";
 import EventSingle from "./Components/Pages/EventSingle";
+import  Instructor from "./Components/Pages/Instructor";
 import InstructorDetails from "./Components/Pages/InstructorDetails";
 import SingleBlog from "./Components/Pages/SingleBlog";
-import SingleCourse from "./Components/Pages/SingleCourse";
+// import SingleCourse from "./Components/Pages/SingleCourse";
 import Thanks from "./Components/Pages/Thanks";
 
 function App() {
@@ -20,8 +22,9 @@ function App() {
         <Routes>
           <Route path="/home-test-api" element={<HomeTestAPI />} />
           <Route path="/" element={<Home />} />
+          <Route path="/giang-vien" element={<Instructor />} />
           <Route
-            path="/instructor-details"
+            path="/giang-vien/:slug"
             element={<InstructorDetails />}
           />
           <Route path="/event" element={<Event />} />
@@ -30,21 +33,25 @@ function App() {
             element={<EventSingle />}
           />
           <Route path="/error" element={<ErrorPage />} />
-          <Route path="/courses" element={<Courses />} />
+          <Route path="/khoa-hoc" element={<Courses />} />
           <Route
-            path="/courses-sidebar"
+            path="/khoa-hoc-sidebar"
             element={<CourseSideBar />}
           />
           <Route
+            path="/danh-muc-khoa-hoc/:slug"
+            element={<CourseCategory />}
+          />
+          {/* <Route
             path="/single-course"
             element={<SingleCourse />}
-          />
+          /> */}
           <Route
-            path="/blog-standard"
+            path="/blog"
             element={<BLogStandard />}
           />
           <Route
-            path="/single-blog"
+            path="/blog/:slug"
             element={<SingleBlog />}
           />
           <Route

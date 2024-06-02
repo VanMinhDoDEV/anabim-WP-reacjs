@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import SingleTeam from "./SingleTeam";
-import { instructorData } from "../../constant/dummyData";
 
 const Team = () => {
   return (

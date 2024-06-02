@@ -13,8 +13,10 @@ import FilteredCourse from "../FilteredCourse";
 import Footer from "../Footer";
 import Header from "../Header";
 import PageBanner from "../PageBanner";
+import useCoursesAPI from "../../Request/CoursesAPI";
 
 const CourseSideBar = () => {
+  const {dataCourses, dataWPCourses, isLoading} = useCoursesAPI();
   return (
     <>
       <Header />
@@ -24,6 +26,8 @@ const CourseSideBar = () => {
           <div className="grid grid-cols-12 gap-[30px]">
             <div className="lg:col-span-8 col-span-12">
               <FilteredCourse
+                dataCourses={dataCourses}
+                dataWPCourses={dataWPCourses}
                 classNameForTabOne={
                   "grid md:grid-cols-2 grid-cols-1 gap-[30px]"
                 }

@@ -1,202 +1,102 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/images/logo/logo.svg";
-import { fbIcon, twIcon, pnIcon, insIcon } from "../constant/images";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/images/logo/logo.svg';
+import { fbIcon, twIcon, pnIcon, insIcon } from '../constant/images';
+import useGetMenus from '../Request/MenuAPI';
 
 const MobileMenu = ({ activeMenu, setActiveMenu }) => {
-  const [showHomeMenu, setShowHomeMenu] = useState(false);
-  const [showPageMenu, setShowPageMenu] = useState(false);
-  const [showBlogMenu, setShowBlogMenu] = useState(false);
-  const [showCourseMenu, setShowCourseMenu] = useState(false);
-  const handleShowHomeMenu = () => {
-    setShowHomeMenu(!showHomeMenu);
+  const { mainNavData, isLoading } = useGetMenus();
+  console.log(mainNavData);
+  const [activeMenus, setActiveMenus] = useState([]);
+
+  const handleShowMenu = (id) => {
+    setActiveMenus((prevActiveMenus) => 
+      prevActiveMenus.includes(id) ? prevActiveMenus.filter((menuId) => menuId !== id) : [...prevActiveMenus, id]
+    )
   };
-  const handleShowPageMenu = () => {
-    setShowPageMenu(!showPageMenu);
+
+  const showMenu = (id) => {
+    return activeMenus.includes(id);
   };
-  const handleShowBlogMenu = () => {
-    setShowBlogMenu(!showBlogMenu);
+
+  const handleLinkClick = (e, hasChildren) => {
+    if (hasChildren) {
+      e.preventDefault();
+    }
   };
-  const handleShowCourseMenu = () => {
-    setShowCourseMenu(!showCourseMenu);
+
+  const MenuItem = ({ item }) => {
+    const hasChildren = item.children && item.children.length > 0;
+    return (
+      <li
+        className={`${hasChildren ? 'menu-item-has-children' : ''} ${showMenu(item.id) ? 'open' : ''}`}
+        onClick={() => hasChildren && handleShowMenu(item.id)}
+      >
+        <a href={item.url} onClick={(e) => handleLinkClick(e, hasChildren)}>{item.title}</a>
+        {hasChildren && (
+          <ul className='sub-menu' style={{ display: showMenu(item.id) ? 'block' : 'none' }}>
+            {item.children.map((child) => (
+              <MenuItem item={child} key={child.id} />
+            ))}
+          </ul>
+        )}
+      </li>
+    );
   };
+
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <>
-      <div className="openmobile-menu fixed top-0 h-screen pt-10 pb-6 bg-white shadow-box2 w-[320px] overflow-y-auto flex flex-col z-[999] active-mobile-menu">
-        <div className="flex justify-between px-6 flex-none">
-          <Link
-            to={"/react-templates/edumim/home"}
-            className="brand-logo flex-none mr-10 "
-          >
-            <img src={logo} alt="logo" />
+      <div className='openmobile-menu fixed top-0 h-screen pt-10 pb-6 bg-white shadow-box2 w-[320px] overflow-y-auto flex flex-col z-[999] active-mobile-menu'>
+        <div className='flex justify-between px-6 flex-none'>
+          <Link to={'/react-templates/edumim/home'} className='brand-logo flex-none mr-10 '>
+            <img src={logo} alt='logo' />
           </Link>
           <span
-            className=" text-3xl text-black cursor-pointer rt-mobile-menu-close"
+            className=' text-3xl text-black cursor-pointer rt-mobile-menu-close'
             onClick={() => {
               setActiveMenu(!activeMenu);
             }}
           >
-            <iconify-icon icon="fe:close"></iconify-icon>
+            <iconify-icon icon='fe:close'></iconify-icon>
           </span>
         </div>
-        <div className="mobile-menu mt-6 flex-1 ">
-          <ul className="menu-active-classNamees">
-            <li
-              className={`menu-item-has-children ${showHomeMenu ? "open" : ""}`}
-              onClick={handleShowHomeMenu}
-            >
-              <a href="#">Home</a>
-              <ul
-                className="sub-menu"
-                style={
-                  showHomeMenu ? { display: "block" } : { display: "none" }
-                }
-              >
-                <li>
-                  <Link to={"/react-templates/edumim"}>Home One</Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/home-two"}>Home Two</Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/home-three"}>
-                    Home Three
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li
-              className={`menu-item-has-children ${showPageMenu ? "open" : ""}`}
-              onClick={handleShowPageMenu}
-            >
-              <a href="#">Pages</a>
-              <ul
-                className="sub-menu"
-                style={
-                  showPageMenu ? { display: "block" } : { display: "none" }
-                }
-              >
-                <li>
-                  <Link to={"/react-templates/edumim/about"}>About 1</Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/about-two"}>About 2</Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/instructor"}>
-                    Instructor
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/instructor-two"}>
-                    Instructor 2
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/instructor-details"}>
-                    Instructor Single
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/event"}>Event</Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/event-single"}>
-                    Event Single
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/error"}>404</Link>
-                </li>
-              </ul>
-            </li>
-            <li
-              className={`menu-item-has-children ${
-                showCourseMenu ? "open" : ""
-              }`}
-              onClick={handleShowCourseMenu}
-            >
-              <a href="#">Courses</a>
-              <ul
-                className="sub-menu"
-                style={
-                  showCourseMenu ? { display: "block" } : { display: "none" }
-                }
-              >
-                <li>
-                  <Link to={"/react-templates/edumim/courses"}>courses</Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/courses-sidebar"}>
-                    courses Sidebar
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/single-course"}>
-                    Single-course
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li
-              className={`menu-item-has-children ${showBlogMenu ? "open" : ""}`}
-              onClick={handleShowBlogMenu}
-            >
-              <a href="#">Blog</a>
-              <ul
-                className="sub-menu"
-                style={
-                  showBlogMenu ? { display: "block" } : { display: "none" }
-                }
-              >
-                <li>
-                  <Link to={"/react-templates/edumim/blog-standard"}>
-                    Blog Standard
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/react-templates/edumim/single-blog"}>
-                    Single Blog
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link to={"/react-templates/edumim/contacts"}>Contacts</Link>
-            </li>
+
+        <div className='mobile-menu mt-6 flex-1 '>
+          <ul className='menu-active-classNamees'>
+            {mainNavData.map((item) => (
+              <MenuItem item={item} key={item.id} />
+            ))}
           </ul>
         </div>
-        <div className=" flex-none pb-4">
-          <div className=" text-center text-black font-semibold mb-2">
-            Follow Us
-          </div>
-          <ul className="flex space-x-4 justify-center ">
+        <div className=' flex-none pb-4'>
+          <div className=' text-center text-black font-semibold mb-2'>Theo dõi chúng tôi</div>
+          <ul className='flex space-x-4 justify-center '>
             <li>
-              <a href="#" className="flex h-10 w-10">
-                <img src={fbIcon} alt="fbIcon" />
+              <a href='#' className='flex h-10 w-10'>
+                <img src={fbIcon} alt='fbIcon' />
               </a>
             </li>
             <li>
-              <a href="#" className="flex h-10 w-10">
-                <img src={twIcon} alt="twiter" />
+              <a href='#' className='flex h-10 w-10'>
+                <img src={twIcon} alt='twiter' />
               </a>
             </li>
             <li>
-              <a href="#" className="flex h-10 w-10">
-                <img src={pnIcon} alt="pnIcon" />
+              <a href='#' className='flex h-10 w-10'>
+                <img src={pnIcon} alt='pnIcon' />
               </a>
             </li>
             <li>
-              <a href="#" className="flex h-10 w-10">
-                <img src={insIcon} alt="insIcon" />
+              <a href='#' className='flex h-10 w-10'>
+                <img src={insIcon} alt='insIcon' />
               </a>
             </li>
           </ul>
         </div>
-      </div>{" "}
-      <div className={`rt-mobile-menu-overlay ${activeMenu && "active"}`}></div>
+      </div>{' '}
+      <div className={`rt-mobile-menu-overlay ${activeMenu && 'active'}`}></div>
     </>
   );
 };
