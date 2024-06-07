@@ -6,7 +6,10 @@ function useGetPosts() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const urlAPI = "http://localhost/anabim/server/wp-json/wp/v2/posts/";
+    // const urlAPI = "http://localhost/anabim/server/wp-json/wp/v2/posts/";
+
+    const urlAPI = `${process.env.REACT_APP_API_ROOT_WP}/posts/`;
+
 
     setIsLoading(true);
     axios({

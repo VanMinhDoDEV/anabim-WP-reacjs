@@ -52,7 +52,7 @@ const ContactForm = () => {
         <input
           type="text"
           className=" from-control"
-          placeholder="Name*"
+          placeholder="Tên của bạn..."
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -61,7 +61,7 @@ const ContactForm = () => {
         <input
           type="email"
           className=" from-control"
-          placeholder="Email*"
+          placeholder="Email của bạn..."
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -70,7 +70,7 @@ const ContactForm = () => {
         <input
           type="url"
           className=" from-control"
-          placeholder="Website Address"
+          placeholder="Địa chỉ website..."
           value={webAdress}
           onChange={(e) => setWebAdress(e.target.value)}
         />
@@ -78,7 +78,7 @@ const ContactForm = () => {
       <div className="md:col-span-2 col-span-1">
         <textarea
           className=" from-control"
-          placeholder="Your Message*"
+          placeholder="Nội dung..."
           rows="5"
           value={message}
           onChange={(e) => setMessage(e.target.value)}

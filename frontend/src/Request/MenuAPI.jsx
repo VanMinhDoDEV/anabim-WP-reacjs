@@ -11,9 +11,14 @@ function useGetMenus() {
     const fetchMenuData = async () => {
         setIsLoading(true);
         try {
-            const responseMain = await axios.get("http://localhost/anabim/server/wp-json/wp/v2/menu/main_nav/");
-            const responseOne = await axios.get("http://localhost/anabim/server/wp-json/wp/v2/menu/footer_nav_1/");
-            const responseTwo = await axios.get("http://localhost/anabim/server/wp-json/wp/v2/menu/footer_nav_2/");
+            // const responseMain = await axios.get("http://localhost/anabim/server/wp-json/wp/v2/menu/main_nav/");
+            // const responseOne = await axios.get("http://localhost/anabim/server/wp-json/wp/v2/menu/footer_nav_1/");
+            // const responseTwo = await axios.get("http://localhost/anabim/server/wp-json/wp/v2/menu/footer_nav_2/");
+
+            const responseMain = await axios.get(`${process.env.REACT_APP_API_ROOT_WP}/menu/main_nav/`);
+            const responseOne = await axios.get(`${process.env.REACT_APP_API_ROOT_WP}/menu/footer_nav_1/`);
+            const responseTwo = await axios.get(`${process.env.REACT_APP_API_ROOT_WP}/menu/footer_nav_2/`);
+            
             
             setmainNavData(responseMain.data);
             setfooterNavOneData(responseOne.data);

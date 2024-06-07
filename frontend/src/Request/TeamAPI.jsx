@@ -8,7 +8,10 @@ function useGetUserData() {
   useEffect(() => {
     const ourUsername = "key_37767e28b64e7068d2f44e692a97f3aa";
     const ourPassword = "secret_1797703cca9a2444a3b8e74c1a1e199fbaed7ab13dd64627510041923c73a108";
-    const urlAPI = "http://localhost/anabim/server/wp-json/wp/v2/users/";
+    // const urlAPI = "http://localhost/anabim/server/wp-json/wp/v2/users/";
+
+    const urlAPI = `${process.env.REACT_APP_API_ROOT_WP}/users/`;
+
 
     setIsLoading(true);
     axios({

@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700,700i");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: "Montserrat", sans-serif;
+    
+}
+body {
+  background: rgb(48,190,173);
+  background: linear-gradient(90deg, rgba(48,190,173,0.11808473389355745) 16%, rgba(255,126,132,0.12088585434173671) 100%);
+}
+:root{
+  --primary-color: #30bead;
+  --secondary-color: #ff7e84;
+  --text-dark-color: #7b7b8a;
+}
+.d-flex{
+  display: flex;
+}
+.tutor-course-name a {
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  height: 1.75rem;
+  overflow: hidden;
+  font-weight: 700;
+  height: 64px;
+  overflow: hidden;
+}
+span.tutor-meta-icon::before{
+  font-size: 16px;
+  color: #FF7E84;
+}
+span.tutor-meta-value {
+  COLOR: #7b7b8a;
+  font-size: 18px;
+}
+.tutor-card-footer:not(.tutor-no-border),
+.tutor-card:not(.tutor-no-border){
+  border: none;
+}
+.tutor-course-single-content-wrapper{
+  flex-direction: row-reverse;
+
+}
+.single-lesson {
+  width: 98%;
+  margin: auto;
+}
+.single-lesson #page hr{
+  display: none;
+}
+header#header{
+  margin-bottom: 48px;
+}
+/* Chỉnh sửa style chung cho menu */
+
+
+.header-nav .main-menu-container {
+  width: 100%;
+}
+
+.header-nav .main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.header-nav ul#main-nav {
+  display: flex;
+}
+
+.header-nav .menu-item {
+  position: relative;
+  list-style: none;
+}
+
+.header-nav .menu-item a,
+.header-responsive .menu-item a {
+  text-decoration: none;
+  color: var(--text-dark-color);
+  display: block;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.header-nav .menu-item:hover a:not(.sub-menu a),
+.header-responsive .menu-item:hover a:not(.sub-menu a){
+  color: #000;
+}
+/* Tạo dropdown menu */
+li.menu-item.menu-item-has-children:before {
+  position: absolute;
+  content: "\f101";
+  font-family: "flaticon";
+  font-size: 13px;
+  right: 1.25rem;
+  color: var(--text-dark-color);
+  font-weight: 600;
+  padding-top: 14px;
+  right: 0px;
+}
+.header-nav .menu-item-has-children .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  display: none;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+.header-nav .menu-item-has-children:hover .sub-menu {
+  display: block;
+}
+
+.header-nav .sub-menu .menu-item {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header-nav .sub-menu .menu-item a {
+  padding: 10px 15px;
+}
+.header-nav .sub-menu .menu-item:hover a{
+  background-color: var(--secondary-color);
+  transition: all 0.25s linear;
+  color: #fff;
+}
+a.logo-link {
+  display: flex;
+  margin: auto 0;
+  height: 100%;
+}
+.btn.btn-primary {
+  display: flex;
+  margin: auto auto;
+  border: none;
+  text-decoration: none;
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+  padding: 18px 28px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+a.btn.btn-responsive.btn-user {
+  display: inline-flex;
+  padding: 8px 12px;
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+}
+header .action-account {
+  display: flex;
+  justify-content: flex-end;
+}
+footer.footer {
+}
+
+@media (max-width: 766px){
+  .main-menu{
+    display: none;
+  }
+  .header-nav{
+    display: none;
+  }
+  .header-responsive{
+    display: block;
+  }
+  a.icon-menu-responsive img {
+    display: inline-block;
+    height: 18px;
+  }
+  .header-responsive {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 15px 8px;
+    z-index: 9999;
+  }
+  .main-menu-responsive {
+    margin: auto;
+    height: 100%;
+}
+
+  a.icon-menu-responsive {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+  }
+  a.logo-responsive-link {
+    font-size: 40px;
+    line-height: 37px;
+  }
+  ul.menu-mobile{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .main-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 68px;
+    background-color: rgb(51 51 51 / 27%);
+    z-index: 9;
+  }
+  .main-menu-mobile {
+    top: 0;
+    left: 0;
+    bottom: 67px;
+    right: 20%;
+    background-color: #fff;
+    position: fixed;
+    z-index: 99;
+  }
+  .header-responsive .menu-mobile{
+    list-style-type: none;
+    padding: 0;
+
+  }
+  .header-responsive .menu-mobile .menu-item {
+    list-style: none;
+    border-bottom: 1px solid rgb(123 123 138 / 12%);
+  }
+  .header-responsive .menu-mobile .menu-item .sub-menu{
+    padding-left: 18px;
+  }
+  li.menu-item.menu-item-has-children:before {
+    position: absolute;
+    content: "\f101";
+    font-family: "flaticon";
+    font-size: 13px;
+    right: 1.25rem;
+    color: var(--text-dark-color);
+    font-weight: 600;
+    padding-top: 10px;
+  }
+  footer.footer{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    bottom: 59px;
+  }
+
+  .tutor-login-wrap, #tutor-registration-wrap{
+    padding: 0;
+  }
+  .tutor-dashboard #tutor-dashboard-footer-mobile {
+    display: none;
+  }
+
+
+
+}
+@media (min-width: 767px){
+  .header-responsive{
+    display: none;
+  }
+  .main-menu-overlay{
+    display: none;
+  }
+}
+.hidden {
+  display: none;
+}
+.active{
+  display: block;
+}
+p.footer-copyright {
+  margin: 34px auto;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a.footer-copyright-link {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.tutor-single-course a.tutor-fs-6{
+  text-decoration: none;
+}
+.tutor-course-content-list-item-title a {
+  text-decoration: none;
+}

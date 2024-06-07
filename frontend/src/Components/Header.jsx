@@ -10,9 +10,10 @@ const Header = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
 
   const scrollNav = useRef(null);
+
   useEffect(() => {
     // Gọi API để lấy dữ liệu menu
-    axios.get('http://localhost/anabim/server/wp-json/wp/v2/menu/main_nav')
+    axios.get(`${process.env.REACT_APP_API_ROOT_WP}/menu/main_nav/`)
       .then(response => {
         setMenuItems(response.data);
       })
@@ -37,9 +38,33 @@ const Header = () => {
   const renderMenuItems = (items) => {
     return items.map(item => {
       const hasChildren = item.children && item.children.length > 0;
+
+      //render url Wp -react
+
+      //1: render all link, but all link is <a>
+      const MyLink = ({ to, isReactRoute, children }) => {
+        if (isReactRoute) {
+          return <Link to={to}>{children}</Link>;
+        } else {
+          return <a href={to}>{children}</a>;
+        }
+      };
+      // 2: link but not <a>
+
+      // let url = '#';
+      // try {
+      //   url = new URL(item.url).pathname;
+      // } catch(error) {
+      //   console.error('Invalid URL:', item.url);
+      // }
+
       return (
         <li key={item.id} className={hasChildren ? "menu-item-has-children" : ""}>
-          <a href={item.url}>{item.title}</a>
+          {/* link */}
+          {/* 1 */}
+          <MyLink to={item.url} isReactRoute={item.isReactRoute}>{item.title}</MyLink>
+          {/* 2 */}
+          {/* <Link to={url}>{item.title}</Link> */}
           {hasChildren && (
             <ul className="sub-menu">
               {renderMenuItems(item.children)}

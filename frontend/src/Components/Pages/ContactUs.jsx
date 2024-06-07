@@ -10,56 +10,57 @@ const ContactUs = () => {
     <>
       <Header />
       <PageBanner title={"Contact Us"} pageName="Contact" />
-      <div class="nav-tab-wrapper tabs  section-padding">
-        <div class="container">
-          <div class=" grid grid-cols-12 gap-[30px]">
-            <div class="xl:col-span-5 lg:col-span-6 col-span-12 ">
-              <div class="mini-title">Contact Us</div>
-              <h4 class="column-title ">
-                Get In Touch <span class="shape-bg">Today</span>
+      <div className="nav-tab-wrapper tabs  section-padding">
+        <div className="container">
+          <div className=" grid grid-cols-12 gap-[30px]">
+            <div className="xl:col-span-5 lg:col-span-6 col-span-12 ">
+              <div className="mini-title">Liên hệ </div>
+              <h4 className="column-title ">
+                Chúng tôi đang <span className="shape-bg">Chờ phản hồi</span>
               </h4>
               <div>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered.
+                Để không bỏ lỡ bất kỳ điều gì từ chúng tôi, 
+                xin bạn để lại thông tin giúp chúng tôi nhanh 
+                chóng phản hồi yêu cầu của bạn.
               </div>
-              <ul class=" list-item space-y-6 pt-8">
-                <li class="flex">
-                  <div class="flex-none mr-6">
-                    <div class="">
-                      <img src={mail} alt="" class="" />
+              <ul className=" list-item space-y-6 pt-8">
+                <li className="flex">
+                  <div className="flex-none mr-6">
+                    <div className="">
+                      <img src={mail} alt="" className="" />
                     </div>
                   </div>
-                  <div class="flex-1">
-                    <h4 class=" lg:text-xl text-lg mb-1">Email-Us :</h4>
+                  <div className="flex-1">
+                    <h4 className=" lg:text-xl text-lg mb-1">Email chúng tôi:</h4>
                     <div>Contactyourmail@gmail.com</div>
                   </div>
                 </li>
-                <li class="flex">
-                  <div class="flex-none mr-6">
-                    <div class="">
-                      <img src={call} alt="" class="" />
+                <li className="flex">
+                  <div className="flex-none mr-6">
+                    <div className="">
+                      <img src={call} alt="" className="" />
                     </div>
                   </div>
-                  <div class="flex-1">
-                    <h4 class=" lg:text-xl text-lg mb-1">Call Us:</h4>
-                    <div>+88012 2910 1781, +88019 6128 1689</div>
+                  <div className="flex-1">
+                    <h4 className=" lg:text-xl text-lg mb-1">Số điện thoại chúng tôi:</h4>
+                    <div>094.9229.686</div>
                   </div>
                 </li>
-                <li class="flex">
-                  <div class="flex-none mr-6">
-                    <div class="">
-                      <img src={map} alt="" class="" />
+                <li className="flex">
+                  <div className="flex-none mr-6">
+                    <div className="">
+                      <img src={map} alt="" className="" />
                     </div>
                   </div>
-                  <div class="flex-1">
-                    <h4 class="lg:text-xl text-lg mb-1">Office :</h4>
-                    <div>Mountain Green Road 2389, NY, USA</div>
+                  <div className="flex-1">
+                    <h4 className="lg:text-xl text-lg mb-1">Địa chỉ:</h4>
+                    <div>75 - Hà Trì - Hà Cầu - Hà Nội</div>
                   </div>
                 </li>
               </ul>
             </div>
-            <div class="xl:col-span-7 lg:col-span-6 col-span-12">
-              <div class="bg-white shadow-box7 p-8 rounded-md">
+            <div className="xl:col-span-7 lg:col-span-6 col-span-12">
+              <div className="bg-white shadow-box7 p-8 rounded-md">
                 <ContactForm />
               </div>
             </div>

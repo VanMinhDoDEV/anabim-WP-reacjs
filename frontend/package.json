@@ -2,7 +2,7 @@
   "name": "edumim",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost:3000/",
+  "homepage": "https://anabim.minhtau.net/",
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@headlessui/react": "^1.7.7",

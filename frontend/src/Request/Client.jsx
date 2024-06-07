@@ -6,7 +6,9 @@ function useGetClient() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const urlAPI = "http://localhost/anabim/server/wp-json/wp/v2/client";
+    // const urlAPI = "http://localhost/anabim/server/wp-json/wp/v2/client";
+    const urlAPI =  `${process.env.REACT_APP_API_ROOT_WP}/client`;
+
 
     setIsLoading(true);
     axios({

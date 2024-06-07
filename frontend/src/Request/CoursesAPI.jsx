@@ -8,7 +8,11 @@ function useCoursesAPI() {
   
   useEffect(() => {
     const fetchData = async () => {
-      const urlAPIWP = "http://localhost/anabim/server/wp-json/wp/v2/courses";
+
+    // const urlAPIWP = "http://localhost/anabim/server/wp-json/wp/v2/courses";
+
+    const urlAPIWP =  `${process.env.REACT_APP_API_ROOT_WP}/courses`;
+
 
       setIsLoading(true);
       try {

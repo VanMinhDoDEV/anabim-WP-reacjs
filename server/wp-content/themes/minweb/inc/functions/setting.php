@@ -22,3 +22,13 @@ function minweb_setup_theme(){
   }
   add_action('init','minweb_setup_theme');
   
+  function init_css_js() {
+    // link css
+    wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0');
+    wp_enqueue_style('flaticon', get_template_directory_uri() . '/assets/fonts/custom/flaticon.css', array(), '1.0');
+
+
+      // link JS
+      wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0', true);
+  }
+  add_action('wp_enqueue_scripts', 'init_css_js');

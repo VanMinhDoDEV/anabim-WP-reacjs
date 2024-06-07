@@ -55,7 +55,7 @@ function App() {
             element={<SingleBlog />}
           />
           <Route
-            path="/contacts"
+            path="/lien-he"
             element={<ContactUs />}
           />
           <Route path="/thanks" element={<Thanks />} />

@@ -4,6 +4,7 @@
 require "inc/functions/setting.php";
 require "inc/functions/custom-user.php";
 require "inc/functions/post-type-client.php";
+require "inc/functions/themeoption.php";
 
 //reponse API
 
