@@ -5,7 +5,7 @@ import { clock, file, star } from "../constant/images";
 const Course = ({ course, index }) => {
   const slug = course.slug_category;
 
-  // console.log('Dữ liệu từ course:', course);
+  console.log('Dữ liệu từ course:', course);
   return (
     <div
       className=" bg-white shadow-box2 rounded-[8px] transition duration-100 hover:shadow-sm"

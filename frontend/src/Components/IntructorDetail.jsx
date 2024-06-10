@@ -21,7 +21,7 @@ const IntructorDetail = () => {
   const { instructorData, isLoading } = useGetUserData();
 
   const {dataWPCourses: courseData } = useCoursesAPI();
-  // console.log('Dữ liệu từ courseData:', courseData);
+  console.log('Dữ liệu từ courseData:', courseData);
 
 
   const urlSlug = window.location.pathname.split('/').pop();
@@ -151,22 +151,24 @@ const IntructorDetail = () => {
                   Khóa học của <span className="shape-bg">{item.name}</span>
                 </div>
               </div>
-              <div className=" grid xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 grid-cols-1  gap-[30px]">
-                {courseData && courseData.length > 0 && (() => {
-                  const course = courseData.find(course => course.author_id == item.id);
-                  return course ? <Course course={course} key={course.id} /> : null;
-                })()}
+              <div className="grid xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-[30px]">
+                {courseData && courseData.length > 0 &&
+                  courseData.filter(course => course.author_id == item.id)
+                  .slice(0, limitCourse)
+                  .map((course) => <Course course={course} key={course.id} />)
+                }
               </div>
-              {limitCourse < courseData.length && (
-              <div
-              className="text-center lg:pt-14 pt-8">
-                <button 
-                  onClick={() => setLimitCourse(oldLimitCourse => oldLimitCourse+2)}
-                  className=" btn btn-primary">
-                  Xem thêm khóa học
-                </button>
-              </div>
-              )}
+              {courseData.filter(course => course.author_id == item.id).length > limitCourse && 
+                (
+                  <div className="text-center lg:pt-14 pt-8">
+                    <button 
+                      onClick={() => setLimitCourse(oldLimitCourse => oldLimitCourse+2)}
+                      className=" btn btn-primary">
+                      Xem thêm khóa học
+                    </button>
+                  </div>
+                )
+              }
             </div>
           </div>
         ))}
